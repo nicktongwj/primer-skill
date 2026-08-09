@@ -18,34 +18,65 @@ for the person on the receiving end: ask it before you decide, and you get the
 map of the topic, the evidence under each part, and how far that evidence can be
 trusted, so the choice is yours rather than the last confident person's.
 
-## Install
+## Use Primer immediately
 
-Three ways, in order of convenience.
+On any Claude or ChatGPT surface that can open public links, paste this and
+replace the topic:
 
-**Option A: tell your agent to install it.** Paste this to any AI agent that can
-read a URL and write a file:
+> Install or activate Primer by following
+> `https://raw.githubusercontent.com/nicktongwj/primer-skill/main/INSTALL.md`.
+> Then give me a primer on **[topic]**.
 
-> Install the Primer skill from https://github.com/nicktongwj/primer-skill into my
-> agent's skills directory (commonly `~/.claude/skills/`). Create `primer/` and
-> `primer/references/` there, then download these three files, keeping the paths:
-> - `SKILL.md` → https://raw.githubusercontent.com/nicktongwj/primer-skill/main/SKILL.md
-> - `references/evidence-method.md` → https://raw.githubusercontent.com/nicktongwj/primer-skill/main/references/evidence-method.md
-> - `references/output-template.md` → https://raw.githubusercontent.com/nicktongwj/primer-skill/main/references/output-template.md
->
-> Then confirm the skill loads.
+This starts Primer in the current conversation without changing account
+settings. It is the mobile fallback where persistent third-party skill or plugin
+installation is not exposed by the product.
 
-**Option B: clone into your skills folder.**
+## Install permanently
+
+### Claude
+
+1. **[Download Primer for Claude](https://github.com/nicktongwj/primer-skill/releases/latest/download/primer.zip).**
+2. In Claude, open **Customize → Skills → + Create skill → Upload a skill**,
+   select `primer.zip`, and enable it.
+
+Claude requires the user to approve a ZIP upload; a message containing a GitHub
+URL cannot silently modify the account's skill library. If the mobile app does
+not show the upload controls, use the immediate-use prompt above or upload the
+ZIP from Claude web.
+
+### ChatGPT Work and Codex
+
+Primer is also packaged as a skills-only OpenAI plugin.
+
+For a local or pre-publication install:
+
+```bash
+codex plugin marketplace add nicktongwj/primer-skill
+```
+
+Then open **Plugins**, choose the **Primer Skill** marketplace, install
+**Primer**, and start a new conversation. In ChatGPT, invoke it as `@primer`; in
+Codex, use `$primer`.
+
+Public one-click installation on ChatGPT Work web and desktop requires Primer to
+be accepted into OpenAI's universal Plugins Directory. ChatGPT currently does
+not expose plugins on mobile, so use the immediate-use prompt there.
+
+### Claude Code and other filesystem-based agents
+
+Paste this into an agent that can write to its skills directory:
+
+> Install the Primer skill from https://github.com/nicktongwj/primer-skill into
+> my agent's skills directory. Preserve `SKILL.md` and the `references/` folder,
+> then confirm that the skill loads.
+
+Or clone it directly:
 
 ```bash
 git clone https://github.com/nicktongwj/primer-skill.git ~/.claude/skills/primer
 ```
 
-Adjust the destination to wherever your agent loads skills from. For one project
-rather than your whole account, use `.claude/skills/primer` inside that project.
-
-**Option C: download the ZIP.** Use the green Code button above, choose Download
-ZIP, unzip it, and move the folder into your agent's skills directory (commonly
-`~/.claude/skills/`), renamed to `primer`.
+Adjust the destination to the skills directory used by your agent.
 
 ## Use it
 
@@ -244,10 +275,17 @@ Low.
 
 ```
 primer-skill/
+├── .agents/plugins/          OpenAI marketplace metadata
+├── plugins/primer/           installable OpenAI skills-only plugin
 ├── SKILL.md                  the instructions your agent reads
 ├── references/
 │   ├── evidence-method.md    source classes, confidence, verification
 │   └── output-template.md    the map and drill-down structure
+├── PRIVACY.md
+├── INSTALL.md                single agent-readable installation entry point
+├── OPENAI-SUBMISSION.md      public-directory submission pack
+├── SUPPORT.md
+├── TERMS.md
 ├── README.md
 └── LICENSE
 ```
@@ -256,10 +294,13 @@ The skill depends on no other skill.
 
 ## Compatibility
 
-Primer is packaged as an Agent Skill: a `SKILL.md` with `name` and `description`
-frontmatter plus a `references/` folder. Any AI agent or assistant that can load a
-skill folder and read its files can use it. Adapt the install path and how you
-invoke it to whatever agent you run.
+Primer is packaged in two forms from the same source: a standard Agent Skill for
+Claude and other compatible agents, and a skills-only OpenAI plugin for ChatGPT
+Work and Codex. The repository also publishes a Claude-ready ZIP release asset.
+
+Persistent installation remains controlled by each host product. The repository
+cannot bypass an account's upload, installation, workspace, plan, or mobile
+availability controls.
 
 ## Licence
 

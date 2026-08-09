@@ -1,0 +1,20 @@
+{
+  "name": "primer-skill",
+  "interface": {
+    "displayName": "Primer Skill"
+  },
+  "plugins": [
+    {
+      "name": "primer",
+      "source": {
+        "source": "local",
+        "path": "./plugins/primer"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Education"
+    }
+  ]
+}

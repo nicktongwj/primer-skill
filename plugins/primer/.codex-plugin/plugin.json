@@ -1,0 +1,30 @@
+{
+  "name": "primer",
+  "version": "1.0.0",
+  "description": "Build a sourced map of any topic, then drill deeper on demand.",
+  "author": {
+    "name": "Nicholas Tong",
+    "url": "https://github.com/nicktongwj"
+  },
+  "homepage": "https://github.com/nicktongwj/primer-skill",
+  "repository": "https://github.com/nicktongwj/primer-skill",
+  "license": "MIT",
+  "keywords": ["research", "learning", "primer", "explanation"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Primer",
+    "shortDescription": "Understand any topic from a standing start.",
+    "longDescription": "Primer produces a concise, sourced map of a topic first, then expands only the parts you choose with explicit evidence and confidence labels.",
+    "developerName": "Nicholas Tong",
+    "category": "Education",
+    "capabilities": ["Research", "Web search"],
+    "websiteURL": "https://github.com/nicktongwj/primer-skill",
+    "privacyPolicyURL": "https://github.com/nicktongwj/primer-skill/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/nicktongwj/primer-skill/blob/main/TERMS.md",
+    "defaultPrompt": [
+      "Give me a primer on quantum computing.",
+      "Get me up to speed on spatial computing.",
+      "Explain carbon markets from a standing start."
+    ]
+  }
+}

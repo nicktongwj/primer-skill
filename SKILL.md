@@ -1,6 +1,6 @@
 ---
 name: primer
-description: Produce a well-researched, progressive-depth primer on a topic: a scannable high-level map (what it is, why it matters, the things to know, the live debates, the vocabulary, the state of play) followed by a numbered menu to drill deeper on any node. Use when the user wants to understand or get up to speed on a topic, field, technology, concept, or event. Do not use to test or defend a single claim (that is an adversarial task), or for a domain better served by a dedicated skill (legal research, investment analysis, people or entity dossiers, recent-community-only scans).
+description: Create a sourced, progressive-depth primer on a topic—a concise map first, then drill-downs. Use to understand a field, concept, technology, or event from a standing start.
 ---
 
 # Primer
